@@ -15,6 +15,10 @@ mnist = tf.keras.datasets.mnist
 # Normalize the data
 x_train, x_test = x_train / 255.0, x_test / 255.0
 
+# Add a channel dimension to the data
+x_train = x_train[..., tf.newaxis]
+x_test = x_test[..., tf.newaxis]
+
 # Create a simple neural network model
 class MyModel(Model):
     def __init__(self):
